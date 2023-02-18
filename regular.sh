@@ -21,7 +21,7 @@ fi
 
 if [[ -z "${regular_ckpt}" ]]
 then
-    regular_ckpt="/root/autodl-tmp/auto/stable-diffusion-web-ui/stable-diffusion-webui/models/Stable-diffusion/v1-5-pruned-emaonly.ckpt"
+    regular_ckpt="/root/autodl-tmp/v1-5-pruned-emaonly.ckpt"
     echo regular_ckpt = ${regular_ckpt}
 fi
 

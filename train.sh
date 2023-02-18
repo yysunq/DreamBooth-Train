@@ -7,7 +7,7 @@ fi
 
 if [[ -z "${desc}" ]]
 then
-        desc="sd-1.5-churuo-woman"
+        desc="sd-1.5-tlbb-woman"
 fi
 
 
@@ -18,26 +18,26 @@ fi
 
 if [[ -z "${actual_resume}" ]]
 then
-        actual_resume="/root/autodl-tmp/auto/stable-diffusion-web-ui/stable-diffusion-webui/models/Stable-diffusion/v1-5-pruned-emaonly.ckpt"
+        actual_resume="/root/autodl-tmp/v1-5-pruned-emaonly.ckpt"
     fi
 if [[ -z "${reg_data_root}" ]]
 then
-        reg_data_root="/root/autodl-tmp/dreambooth/Dreambooth-Stable-Diffusion/regularization_images/woman"
+        reg_data_root="/root/autodl-tmp/db/Dreambooth-Stable-Diffusion/regularization_images/woman"
 fi
 
 if [[ -z "${proj_name}" ]]
 then
-        proj_name="v9.sd1.5.churuo.woman"
+        proj_name="v23.sd1.5.tlbb.woman"
 fi
 
 if [[ -z "${train_data}" ]]
 then
-        train_data="/root/autodl-tmp/dreambooth/Dreambooth-Stable-Diffusion/training_images"
+        train_data="/root/autodl-tmp/db/Dreambooth-Stable-Diffusion/training_images"
 fi
 
 if [[ -z "${steps}" ]]
 then
-        steps="2000"
+        steps="4000"
 fi
 
 if [[ -z "${class_word}" ]]
@@ -47,7 +47,7 @@ fi
 
 if [[ -z "${token}" ]]
 then
-        token="churuo"
+        token="tlbb"
 fi
 
 #`python ./main.py --base ./configs/stable-diffusion/v1-finetune_unfrozen.yaml -t --actual_resume anime700k-64bs-0.1ucg-penultimate-1epoch-clip-ema-continue-76000-ema-pruned.ckpt --reg_data_root /root/autodl-tmp/dreambooth/Dreambooth-Stable-Diffusion/regularization_images/female -n tlbbv6 --gpu 0, --data_root /root/autodl-tmp/dreambooth/Dreambooth-Stable-Diffusion/training_images --max_training_steps 2000 --class_word female --token tlbb --no-test`
@@ -61,7 +61,7 @@ ckptpath="${lastdir}/checkpoints/last.ckpt"
 echo "source ckpt path = ${ckptpath}"
 time=$(date "+%Y%m%d-%H%M%S")
 echo $time
-finalpath="/root/autodl-tmp/auto/stable-diffusion-web-ui/stable-diffusion-webui/models/Stable-diffusion/${time}-${proj_name}-token(${token})-class_word(${class_word})-steps(${steps})-desc(${desc}).ckpt"
+finalpath="/root/autodl-tmp/${time}-${proj_name}-token(${token})-class_word(${class_word})-steps(${steps})-desc(${desc}).ckpt"
 echo "dest ckpt path = ${finalpath}"
 mv $ckptpath $finalpath
 echo "success mv ${finalpath}!!!"

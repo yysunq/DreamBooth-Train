@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import sys
@@ -25,9 +24,10 @@ print(f'create new {savepath} success!!')
 i=0
 filelist = os.listdir(path)
 for file in filelist:
-    im = PIL.Image.open(path+filelist[i])
-    filename = os.path.splitext(file)[0]
-    print(f"{i}:processing... {savepath}{filename}.png")
-    im.save(savepath+filename+'.png') # or 'test.tif'
-    i=i+1
+    if file.endswith('.jpg'):
+        im = PIL.Image.open(path+filelist[i])
+        filename = os.path.splitext(file)[0]
+        print(f"{i}:processing... {savepath}{filename}.png")
+        im.save(savepath+filename+'.png') # or 'test.tif'
+        i=i+1
 print(f'all {i} files processed success in {savepath}')
